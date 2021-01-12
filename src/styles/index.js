@@ -35,7 +35,7 @@ const opacityDown = keyframes`
 export const DYbtn = styled.div`
   width: 157px;
   height: 47px;
-  background: ${deepYellow};
+  background-color: ${deepYellow};
   border-radius: 9px;
   border: 1px solid ${black};
 
@@ -44,10 +44,10 @@ export const DYbtn = styled.div`
   }
 `;
 
-export const LYbtn = styled.div`
+export const LYbtn = styled(Button)`
   width: 157px;
   height: 47px;
-  background: ${lightYellow};
+  background-color: ${lightYellow};
   border-radius: 9px;
   border: 1px solid #1c1c1c;
 `;
@@ -55,7 +55,7 @@ export const LYbtn = styled.div`
 export const Whitebtn = styled.div`
   width: 157px;
   height: 47px;
-  background: white;
+  background-color: white;
   border-radius: 9px;
   border: 1px solid #1c1c1c;
 `;
