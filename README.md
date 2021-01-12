@@ -1,10 +1,10 @@
 # SSHO website
 
-about ssho
+about ssho 2021
 
 ## Link
 
-s-sho.kr
+http://s-sho.kr
 
 ### Use
 
@@ -12,4 +12,4 @@ React \
 Yarn \
 Styled-components \
 Material-ui \
-React-router-dom \
+React-router-dom
