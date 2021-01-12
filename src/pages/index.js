@@ -1,4 +1,4 @@
-import LandingPage from './LandingPage';
+import LandingPage from './LandingPage/index';
 
 export {
     LandingPage
