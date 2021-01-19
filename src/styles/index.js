@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { Button } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 
 // media query
 export const desktop_large = '1200px';
@@ -16,7 +16,9 @@ export const mobile_small = '320px';
 // color
 export const deepYellow = '#ffb700';
 export const lightYellow = '#fed850';
+export const backLightYellow = '#fffbef';
 export const black = '#1c1c1c';
+export const white = 'ffffff';
 
 
 // animation
@@ -32,32 +34,30 @@ const opacityDown = keyframes`
 
 
 // components
-export const DYbtn = styled.div`
+export const box = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  background-color: ${props => props.color};
+`;
+export const button = styled(Button)`
   width: 157px;
   height: 47px;
-  background-color: ${deepYellow};
+  background-color: ${props => props.color};
   border-radius: 9px;
   border: 1px solid ${black};
 
-  &:hover {
-      animation: ${opacityDown} 0.5s forwards;
-  }
+  // &:hover {
+  //     animation: ${opacityDown} 0.5s forwards;
+  // }
 `;
-
-export const LYbtn = styled(Button)`
-  width: 157px;
-  height: 47px;
-  background-color: ${lightYellow};
+export const xsButton = styled(Button)`
+  width: 104px;
+  height: 30px;
+  background-color: ${props => props.color};
   border-radius: 9px;
-  border: 1px solid #1c1c1c;
-`;
-
-export const Whitebtn = styled.div`
-  width: 157px;
-  height: 47px;
-  background-color: white;
-  border-radius: 9px;
-  border: 1px solid #1c1c1c;
+  border: 1px solid ${black};
 `;
 
 // text components
@@ -65,12 +65,20 @@ export const HeaderTitleText = styled.div`
   font-weight: bold;
   font-size: 32px;
   line-height: 47px;
+  text-align: left;
   color: ${black};
 `;
 
 export const HeaderSubText = styled.div`
   font-size: 20px;
   line-height: 29px;
+  text-align: left;
+  color: ${black};
+`;
+export const buttonText = styled.div`
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
   color: ${black};
 `;
 
@@ -98,5 +106,12 @@ export const FooterText = styled.div`
   font-weight: light;
   font-size: 14px;
   line-height: 30px;
+  color: ${black};
+`;
+
+export const HeaderText = styled.div`
+  font-weight: light;
+  font-size: 12px;
+  line-height: 18px;
   color: ${black};
 `;
