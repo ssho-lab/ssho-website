@@ -1,16 +1,20 @@
 import React from 'react';
-import { StylesProvider } from '@material-ui/core';
 
 import * as styles from '../../styles';
-import { SshoLogo } from '../../data';
+import { SshoLogo, BackImage } from '../../data';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components'
+
+import Back from '../../data/image/main_back.svg';
+import IPhone from '../../data/image/iPhone.png';
 
 
 const MainPage = ({history}) => {
   return (
-    <StylesProvider injectFirst>
         <styles.box color={styles.backLightYellow}>
+          <img src={Back} style={{
+            position: 'absolute', top: -20, left: -20, width: '105vw', height: '50%', zIndex:2, overflow: 'hidden'
+            }} />
             <StyledContainer>
                 <StyledHeaderContainer>
                     <SshoLogo />
@@ -25,11 +29,13 @@ const MainPage = ({history}) => {
                 </StyledHeaderContainer>
 
                 <StyledContentContainer>
+                <Grid container direction="row">
+                  <Grid item md>
                     <styles.HeaderTitleText>
                         <>취향 발견의 즐거움, <br />
                         스쇼 </>
                     </styles.HeaderTitleText>
-                    <styles.HeaderSubText>
+                    <styles.HeaderSubText align={'left'}>
                         <>스와이프 쇼핑으로 만나는 <br />
                         나만의 개성, 나만의 패션취향 </>
                     </styles.HeaderSubText>
@@ -38,15 +44,19 @@ const MainPage = ({history}) => {
                         <styles.button color={styles.deepYellow}>
                             <styles.buttonText>App Store</styles.buttonText>
                         </styles.button>
-                        <styles.button color={styles.deepYellow}>
+                        <styles.button color={styles.deepYellow} style={{marginLeft: 18}}>
                             <styles.buttonText>Google Play</styles.buttonText>
                         </styles.button>
                     </StyledButtonContainer>
+                  </Grid>
+                  <Grid item md>
+                      <StyledPhone src={IPhone} />
+                  </Grid>
+                </Grid>
                 </StyledContentContainer>
 
             </StyledContainer>
         </styles.box>
-    </StylesProvider>
   );
 }
 
@@ -60,6 +70,8 @@ const StyledContainer = styled.div`
   align-items: center;
   flex-direction: column;
   display: flex;
+  z-index: 3;
+  height: auto;
 `;
 
 const StyledHeaderContainer = styled.div`
@@ -86,4 +98,8 @@ const StyledButtonContainer = styled.div`
   flex-direction: row;
   width: 100%;
   margin-top: 30px;
+`;
+const StyledPhone = styled.img`
+  width: 50%;
+  transform: rotate(8deg);
 `;

@@ -17,8 +17,9 @@ export const mobile_small = '320px';
 export const deepYellow = '#ffb700';
 export const lightYellow = '#fed850';
 export const backLightYellow = '#fffbef';
+export const backDeepYellow = '#feedb4';
 export const black = '#1c1c1c';
-export const white = 'ffffff';
+export const white = '#ffffff';
 
 
 // animation
@@ -40,6 +41,7 @@ export const box = styled.div`
   height: auto;
   justify-content: center;
   background-color: ${props => props.color};
+  overflow: scroll;
 `;
 export const button = styled(Button)`
   width: 157px;
@@ -51,6 +53,13 @@ export const button = styled(Button)`
   // &:hover {
   //     animation: ${opacityDown} 0.5s forwards;
   // }
+`;
+export const smButton = styled(Button)`
+  width: 130px;
+  height: 35px;
+  background-color: ${props => props.color};
+  border-radius: 9px;
+  border: 1px solid ${black};
 `;
 export const xsButton = styled(Button)`
   width: 104px;
@@ -72,7 +81,7 @@ export const HeaderTitleText = styled.div`
 export const HeaderSubText = styled.div`
   font-size: 20px;
   line-height: 29px;
-  text-align: left;
+  text-align: ${props => props.align};
   color: ${black};
 `;
 export const buttonText = styled.div`
@@ -87,6 +96,7 @@ export const MainTitleText1 = styled.div`
   font-size: 30px;
   line-height: 45px;
   color: ${black};
+  text-align: right;
 `;
 
 export const MainTitleText2 = styled.div`
@@ -94,6 +104,7 @@ export const MainTitleText2 = styled.div`
   font-size: 30px;
   line-height: 42px;
   color: ${black};
+  
 `;
 
 export const MainSubText2 = styled.div`
