@@ -16,18 +16,6 @@ const MainPage = ({history}) => {
             position: 'absolute', top: -20, left: -20, width: '105vw', height: '50%', zIndex:2, overflow: 'hidden'
             }} />
             <StyledContainer>
-                <StyledHeaderContainer>
-                    <SshoLogo />
-                    <HeaderRight>
-                        <styles.HeaderText style={{marginRight: 18}}>
-                            입점 문의 혹은 투자 문의가 필요하신가요?
-                        </styles.HeaderText>
-                        <styles.xsButton color={styles.lightYellow}>
-                            문의하기
-                        </styles.xsButton>
-                    </HeaderRight>
-                </StyledHeaderContainer>
-
                 <StyledContentContainer>
                 <Grid container direction="row">
                   <Grid item md>
@@ -63,7 +51,7 @@ const MainPage = ({history}) => {
 export default MainPage;
 
 const StyledContainer = styled.div`
-  padding-top: 30px;
+  padding-top: 100px;
   max-width: 740px;
   width: 100%;
   padding-bottom: 36px;
@@ -72,19 +60,6 @@ const StyledContainer = styled.div`
   display: flex;
   z-index: 3;
   height: auto;
-`;
-
-const StyledHeaderContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-`;
-const HeaderRight = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: flex-end;
 `;
 const StyledContentContainer = styled.div`
   display: flex;

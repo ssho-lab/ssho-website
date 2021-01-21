@@ -54,6 +54,13 @@ export const button = styled(Button)`
   //     animation: ${opacityDown} 0.5s forwards;
   // }
 `;
+export const lgButton = styled(Button)`
+  width: 253px;
+  height: 47px;
+  background-color: ${props => props.color};
+  border-radius: 9px;
+  border: 1px solid ${black};
+`;
 export const smButton = styled(Button)`
   width: 130px;
   height: 35px;
