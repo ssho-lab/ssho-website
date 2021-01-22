@@ -41,7 +41,7 @@ export const box = styled.div`
   height: auto;
   justify-content: center;
   background-color: ${props => props.color};
-  overflow: scroll;
+  overflow: hidden;
 `;
 export const button = styled(Button)`
   width: 157px;
@@ -54,8 +54,15 @@ export const button = styled(Button)`
   //     animation: ${opacityDown} 0.5s forwards;
   // }
 `;
-export const lgButton = styled(Button)`
+export const xlButton = styled(Button)`
   width: 253px;
+  height: 47px;
+  background-color: ${props => props.color};
+  border-radius: 9px;
+  border: 1px solid ${black};
+`;
+export const lgButton = styled(Button)`
+  width: 210px;
   height: 47px;
   background-color: ${props => props.color};
   border-radius: 9px;

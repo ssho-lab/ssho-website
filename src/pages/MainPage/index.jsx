@@ -1,7 +1,6 @@
 import React from 'react';
 
 import * as styles from '../../styles';
-import { SshoLogo, BackImage } from '../../data';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components'
 
@@ -12,9 +11,7 @@ import IPhone from '../../data/image/iPhone.png';
 const MainPage = ({history}) => {
   return (
         <styles.box color={styles.backLightYellow}>
-          <img src={Back} style={{
-            position: 'absolute', top: -20, left: -20, width: '105vw', height: '50%', zIndex:2, overflow: 'hidden'
-            }} />
+            <BackImage src={Back} />
             <StyledContainer>
                 <StyledContentContainer>
                 <Grid container direction="row">
@@ -77,4 +74,13 @@ const StyledButtonContainer = styled.div`
 const StyledPhone = styled.img`
   width: 50%;
   transform: rotate(8deg);
+`;
+const BackImage = styled.img`
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 105vw;
+  height: 50%;
+  z-index: 2;
+  overflow: hidden;
 `;

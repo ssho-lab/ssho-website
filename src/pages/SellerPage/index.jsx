@@ -5,11 +5,18 @@ import { SshoLogo } from '../../data';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components'
 
+import Seller1 from '../../data/image/seller1.svg';
+import Seller2 from '../../data/image/seller2.svg';
+import Seller3 from '../../data/image/seller3.svg';
+
 const SellerPage = ({history}) => {
 
   return (
         <styles.box color={styles.backLightYellow} style={{flexDirection: 'column', alignItems: 'center'}}>
             <StyledContainer>
+                <BackImageContainer>
+                    <BackImage1 src={Seller1} />
+                </BackImageContainer>
                 <styles.MainTitleText2>
                     <>선호도 기반의<br />
                     다양한 광고 상품</>
@@ -22,6 +29,9 @@ const SellerPage = ({history}) => {
                 </styles.MainSubText2>
             </StyledContainer>
             <StyledContainer>
+                <BackImageContainer>
+                    <BackImage2 src={Seller2} />
+                </BackImageContainer>
                 <styles.MainTitleText2>
                     <>다각화된 데이터를<br />
                     활용한 마케팅</>
@@ -33,6 +43,9 @@ const SellerPage = ({history}) => {
                 </styles.MainSubText2>
             </StyledContainer>
             <StyledContainer>
+                <BackImageContainer>
+                    <BackImage3 src={Seller3} />
+                </BackImageContainer>
                 <styles.MainTitleText2>
                     <>중소규모 쇼핑몰에<br />
                     특화된 서비스</>
@@ -52,7 +65,6 @@ const SellerPage = ({history}) => {
 export default SellerPage;
 
 const StyledContainer = styled.div`
-  padding-top: 100px;
   max-width: 740px;
   width: 100%;
   padding-bottom: 36px;
@@ -61,5 +73,31 @@ const StyledContainer = styled.div`
   flex-direction: column;
   display: flex;
   z-index: 5;
-  height: 770px;
+  position: relative;
+  height: 600px;
 `;
+const BackImageContainer = styled.div`
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const BackImage1 = styled.img`
+  width: 100%;
+  height: auto;
+`;
+const BackImage2 = styled.img`
+  width: 90%;
+  height: auto;
+`;
+const BackImage3 = styled.img`
+  width: 120%;
+  height: auto;
+  margin-top: 80px;
+`;
+

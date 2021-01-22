@@ -47,9 +47,9 @@ const Header = (props) => {
             <StyledHeaderContainer>
                 <SshoLogo />
                 <HeaderRight>
-                    <styles.lgButton color={styles.backDeepYellow}>
+                    <styles.xlButton color={styles.backDeepYellow}>
                         <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
-                    </styles.lgButton>
+                    </styles.xlButton>
                     <styles.button color={styles.lightYellow} style={{marginLeft: 18}}>
                         <styles.buttonText>입점/투자 문의하기</styles.buttonText>
                     </styles.button>

@@ -7,6 +7,7 @@ import { Header } from '../../components';
 import MainPage from '../MainPage';
 import UserPage from '../UserPage';
 import SellerPage from '../SellerPage';
+import ValuePage from '../ValuePage';
 
 const LandingPage = ({history}) => {
   return (
@@ -15,6 +16,7 @@ const LandingPage = ({history}) => {
         <MainPage />
         <UserPage />
         <SellerPage />
+        <ValuePage />
     </StylesProvider>
   );
 }
