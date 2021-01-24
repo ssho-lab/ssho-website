@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import * as styles from '../../styles';
 import { SshoLogo } from '../../data';
 import { Grid } from '@material-ui/core';
-import styled from 'styled-components'
+import styled from 'styled-components';
+
+import AppStore from '../../data/icon/appstore.png';
+import playStore from '../../data/icon/playstore.png';
 
 const Header = (props) => {
-  const [showIndex, setShowIndex] = useState(2);
+  const [showIndex, setShowIndex] = useState(1);
   
   useEffect(() => {
 
@@ -34,10 +37,16 @@ const Header = (props) => {
                 <SshoLogo />
                 <HeaderRight>
                     <styles.button color={styles.deepYellow}>
-                        <styles.buttonText>App Store</styles.buttonText>
+                        <IconImage src={AppStore} />
+                        <div style={{width: '80%', justifyContent: 'center'}}>
+                            <styles.buttonText>App Store</styles.buttonText>
+                        </div>
                     </styles.button>
                     <styles.button color={styles.deepYellow} style={{marginLeft: 18}}>
-                        <styles.buttonText>Google Play</styles.buttonText>
+                        <IconImage src={playStore} />
+                        <div style={{width: '80%', justifyContent: 'center'}}>
+                            <styles.buttonText>Google Play</styles.buttonText>
+                        </div>
                     </styles.button>
                 </HeaderRight>
             </StyledHeaderContainer>
@@ -89,4 +98,7 @@ const HeaderRight = styled.div`
   width: 100%;
   align-items: center;
   justify-content: flex-end;
+`;
+const IconImage = styled.img`
+  width: 20%;
 `;

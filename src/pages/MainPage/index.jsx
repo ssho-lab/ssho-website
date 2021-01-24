@@ -6,7 +6,8 @@ import styled from 'styled-components'
 
 import Back from '../../data/image/main_back.svg';
 import IPhone from '../../data/image/iPhone.png';
-
+import AppStore from '../../data/icon/appstore.png';
+import playStore from '../../data/icon/playstore.png';
 
 const MainPage = ({history}) => {
   return (
@@ -27,10 +28,16 @@ const MainPage = ({history}) => {
 
                     <StyledButtonContainer>
                         <styles.button color={styles.deepYellow}>
-                            <styles.buttonText>App Store</styles.buttonText>
+                            <IconImage src={AppStore} />
+                            <div style={{width: '80%', justifyContent: 'center'}}>
+                              <styles.buttonText>App Store</styles.buttonText>
+                            </div>
                         </styles.button>
                         <styles.button color={styles.deepYellow} style={{marginLeft: 18}}>
-                            <styles.buttonText>Google Play</styles.buttonText>
+                            <IconImage src={playStore} />
+                            <div style={{width: '80%', justifyContent: 'center'}}>
+                              <styles.buttonText>Google Play</styles.buttonText>
+                            </div>
                         </styles.button>
                     </StyledButtonContainer>
                   </Grid>
@@ -83,4 +90,7 @@ const BackImage = styled.img`
   height: 50%;
   z-index: 2;
   overflow: hidden;
+`;
+const IconImage = styled.img`
+  width: 20%;
 `;

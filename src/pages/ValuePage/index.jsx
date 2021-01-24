@@ -4,7 +4,7 @@ import * as styles from '../../styles';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components'
 
-import CoreValue from '../../data/image/CORE VALUE.svg';
+import CoreValue from '../../data/image/CORE VALUE.png';
 
 const TEXT = [
     {

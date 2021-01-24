@@ -8,6 +8,7 @@ import MainPage from '../MainPage';
 import UserPage from '../UserPage';
 import SellerPage from '../SellerPage';
 import ValuePage from '../ValuePage';
+import FooterPage from '../FooterPage';
 
 const LandingPage = ({history}) => {
   return (
@@ -17,6 +18,7 @@ const LandingPage = ({history}) => {
         <UserPage />
         <SellerPage />
         <ValuePage />
+        <FooterPage />
     </StylesProvider>
   );
 }
