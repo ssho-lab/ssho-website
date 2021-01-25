@@ -10,7 +10,7 @@ import Seller2 from '../../data/image/seller2.svg';
 import Seller3 from '../../data/image/seller3.svg';
 
 const SellerPage = (props) => {
-    const ref = useRef(null);
+  const ref = useRef(null);
   const [scrollTop, setScrollTop] = useState(0);
 
   const handleScroll = (e) => {

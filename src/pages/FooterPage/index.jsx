@@ -15,34 +15,30 @@ const FooterPage = ({history}) => {
         <styles.box color={styles.backLightYellow} style={{position: 'relative'}}>
             <StyledContainer>
                 <StyledContentContainer>
-                    <SshoLogo />
-                <styles.FooterText>
-                    <>
-                    스쇼 서울시 마포구 백범로 35 서강대학교 떼이야르관 515호<br />
-                    사업자등록번호 402-26-66251<br />
-                    고객문의 / 쇼핑몰 제휴 문의 customer@s-sho.kr<br />
-                    투자자 문의 investment@s-sho.kr<br />
-                    SNS <>카카오톡</> <>인스타그램</> <>페이스북</>
-                    </>
-                </styles.FooterText>
-                <Grid container direction="row">
-                    <Grid item md> 
-                        <styles.button color={styles.deepYellow}>
-                            <IconImage src={AppStore} />
-                            <div style={{width: '80%', justifyContent: 'center'}}>
-                                <styles.buttonText>App Store</styles.buttonText>
-                            </div>
-                        </styles.button>
-                    </Grid>
-                    <Grid item md>
-                        <styles.button color={styles.deepYellow} style={{marginLeft: 18}}>
-                            <IconImage src={playStore} />
-                            <div style={{width: '80%', justifyContent: 'center'}}>
-                              <styles.buttonText>Google Play</styles.buttonText>
-                            </div>
-                        </styles.button>
-                    </Grid>
-                </Grid>
+                  <SshoLogo style={{marginBottom: 30}} />
+                  <styles.FooterText>
+                      <>
+                      스쇼 서울시 마포구 백범로 35 서강대학교 떼이야르관 515호<br />
+                      사업자등록번호 402-26-66251<br />
+                      고객문의 / 쇼핑몰 제휴 문의 customer@s-sho.kr<br />
+                      투자자 문의 investment@s-sho.kr<br />
+                      SNS <>카카오톡</> <>인스타그램</> <>페이스북</>
+                      </>
+                  </styles.FooterText>
+                  <Grid container direction="row" alignItems="center" justify="center" style={{marginTop: 30}}>
+                    <styles.button color={styles.deepYellow}>
+                      <IconImage src={AppStore} />
+                          <div style={{width: '80%', justifyContent: 'center'}}>
+                            <styles.buttonText>App Store</styles.buttonText>
+                          </div>
+                    </styles.button>
+                    <styles.button color={styles.deepYellow} style={{marginLeft: 18}}>
+                      <IconImage src={playStore} />
+                        <div style={{width: '80%', justifyContent: 'center'}}>
+                          <styles.buttonText>Google Play</styles.buttonText>
+                        </div>
+                    </styles.button> 
+                  </Grid>
                 </StyledContentContainer>
 
             </StyledContainer>
@@ -53,7 +49,7 @@ const FooterPage = ({history}) => {
 export default FooterPage;
 
 const StyledContainer = styled.div`
-  padding-top: 100px;
+  padding-top: 30px;
   max-width: 740px;
   width: 100%;
   padding-bottom: 36px;
@@ -71,6 +67,7 @@ const StyledContentContainer = styled.div`
   width: 100%;
   flex-direction: column;
   margin-top: 28px;
+  align-items: center;
 `;
 const IconImage = styled.img`
   width: 20%;
