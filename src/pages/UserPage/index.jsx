@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import * as styles from '../../styles';
 import { SshoLogo } from '../../data';
@@ -23,10 +23,33 @@ const TEXT = {
 }
 
 
-const UserPage = ({history}) => {
+const UserPage = (props) => {
   const [nowBtn, setNowBtn] = useState('swipe');
   const [showTitle, setShowTitle] = useState('');
   const [showSub, setShowSub] = useState('');
+
+  const ref = useRef(null);
+  const [scrollTop, setScrollTop] = useState(0);
+  
+  const handleScroll = (e) => {
+    setScrollTop(e.srcElement.scrollingElement.scrollTop)
+  }
+
+  useEffect(() => {
+    var node = ref.current;
+    var height = node.getBoundingClientRect().height;
+    var y = node.getBoundingClientRect().top;
+    window.addEventListener('scroll', handleScroll);
+    // console.log(y, height);
+
+    if( -height < y && y < 10 ) props.setHeaderIndex(1);
+  })
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
 
   useEffect(() => {
       if(nowBtn === 'swipe') {
@@ -42,7 +65,7 @@ const UserPage = ({history}) => {
   }, [nowBtn])
 
   return (
-        <styles.box color={styles.backDeepYellow} style={{zIndex: 5}}>
+        <styles.box color={styles.backDeepYellow} style={{zIndex: 5}} ref={ref} onScroll={handleScroll}>
             <StyledContainer>
                 <StyledContentContainer>
                     <Grid container direction="row"> 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import * as styles from '../../styles';
 import { SshoLogo } from '../../data';
@@ -9,10 +9,34 @@ import Seller1 from '../../data/image/seller1.svg';
 import Seller2 from '../../data/image/seller2.svg';
 import Seller3 from '../../data/image/seller3.svg';
 
-const SellerPage = ({history}) => {
+const SellerPage = (props) => {
+    const ref = useRef(null);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const handleScroll = (e) => {
+    setScrollTop(e.srcElement.scrollingElement.scrollTop)
+  }
+
+  useEffect(() => {
+    var node = ref.current;
+    var height = node.getBoundingClientRect().height;
+    var y = node.getBoundingClientRect().top;
+    window.addEventListener('scroll', handleScroll);
+    // console.log(y);
+
+    if( -height < y && y < 10 ) {
+      props.setHeaderIndex(2);
+    }
+  })
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
 
   return (
-        <styles.box color={styles.backLightYellow} style={{flexDirection: 'column', alignItems: 'center'}}>
+        <styles.box color={styles.backLightYellow} style={{flexDirection: 'column', alignItems: 'center'}} ref={ref} onScroll={handleScroll}>
             <StyledContainer>
                 <BackImageContainer>
                     <BackImage1 src={Seller1} />

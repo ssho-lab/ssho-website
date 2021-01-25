@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import * as styles from '../../styles';
 import { Grid } from '@material-ui/core';
@@ -19,8 +19,33 @@ const TEXT = [
     },
 ]
 
-const ValuePage = ({history}) => {
+const ValuePage = (props) => {
   const [showIndex, setShowIndex] = useState(0);
+
+  const ref = useRef(null);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const handleScroll = (e) => {
+    setScrollTop(e.srcElement.scrollingElement.scrollTop)
+  }
+
+  useEffect(() => {
+    var node = ref.current;
+    var height = node.getBoundingClientRect().height;
+    var y = node.getBoundingClientRect().top;
+    window.addEventListener('scroll', handleScroll);
+    // console.log(y);
+
+    if( -height < y && y < 10 ) {
+      props.setHeaderIndex(1);
+    }
+  })
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,7 +56,7 @@ const ValuePage = ({history}) => {
   }, [showIndex])
 
   return (
-        <styles.box color={styles.backDeepYellow} style={{position: 'relative'}}>
+        <styles.box color={styles.backDeepYellow} style={{position: 'relative'}} ref={ref} onScroll={handleScroll}>
             <BackImageContainer>
                 <BackImage src={CoreValue} />
             </BackImageContainer>

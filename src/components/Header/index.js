@@ -8,11 +8,12 @@ import AppStore from '../../data/icon/appstore.png';
 import playStore from '../../data/icon/playstore.png';
 
 const Header = (props) => {
-  const [showIndex, setShowIndex] = useState(1);
+  const [showIndex, setShowIndex] = useState(0);
   
   useEffect(() => {
-
-  }, [])
+    setShowIndex(props.headerIndex);
+    console.log('showIndex: ', showIndex)
+  }, [props])
 
   return (
     <styles.box color={'transparent'}>

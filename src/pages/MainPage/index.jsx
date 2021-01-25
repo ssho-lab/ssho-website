@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom'
 
 import * as styles from '../../styles';
 import { Grid } from '@material-ui/core';
@@ -9,9 +10,35 @@ import IPhone from '../../data/image/iPhone.png';
 import AppStore from '../../data/icon/appstore.png';
 import playStore from '../../data/icon/playstore.png';
 
-const MainPage = ({history}) => {
+
+const MainPage = (props) => {
+  const ref = useRef(null);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const handleScroll = (e) => {
+    setScrollTop(e.srcElement.scrollingElement.scrollTop)
+  }
+
+  useEffect(() => {
+    var node = ref.current;
+    var height = node.getBoundingClientRect().height;
+    var y = node.getBoundingClientRect().top;
+    window.addEventListener('scroll', handleScroll);
+    // console.log(y);
+
+    if( -height < y && y < 10 ) {
+      props.setHeaderIndex(0);
+    }
+  })
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
+
   return (
-        <styles.box color={styles.backLightYellow}>
+        <styles.box color={styles.backLightYellow} ref={ref} onScroll={handleScroll}>
             <BackImage src={Back} />
             <StyledContainer>
                 <StyledContentContainer>
