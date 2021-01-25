@@ -12,7 +12,7 @@ const Header = (props) => {
   
   useEffect(() => {
     setShowIndex(props.headerIndex);
-    console.log('showIndex: ', showIndex)
+    // console.log('showIndex: ', showIndex)
   }, [props])
 
   return (
