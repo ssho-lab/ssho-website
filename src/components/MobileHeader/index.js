@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import AppStore from '../../data/icon/appstore.png';
 import playStore from '../../data/icon/playstore.png';
 
-const Header = (props) => {
+const MobileHeader = (props) => {
   const [showIndex, setShowIndex] = useState(0);
   
   useEffect(() => {
@@ -19,24 +19,24 @@ const Header = (props) => {
     <StyledBox color={'transparent'}>
         <StyledContainer>
 
-            {showIndex === 0 &&
+            {/* {showIndex === 0 &&
             <StyledHeaderContainer>
                 <SshoLogo />
-                <HeaderRight>
+                <HeaderBottom>
                     <styles.HeaderText style={{marginRight: 18}}>
                         입점 문의 혹은 투자 문의가 필요하신가요?
                     </styles.HeaderText>
                     <styles.xsButton color={styles.lightYellow}>
                         문의하기
                     </styles.xsButton>
-                </HeaderRight>
+                </HeaderBottom>
             </StyledHeaderContainer>
-            }
+            } */}
 
             {showIndex === 1 &&
             <StyledHeaderContainer>
                 <SshoLogo />
-                <HeaderRight>
+                <HeaderBottom>
                     <styles.button color={styles.deepYellow}>
                         <IconImage src={AppStore} />
                         <div style={{width: '80%', justifyContent: 'center'}}>
@@ -49,41 +49,21 @@ const Header = (props) => {
                             <styles.buttonText>Google Play</styles.buttonText>
                         </div>
                     </styles.button>
-                </HeaderRight>
+                </HeaderBottom>
             </StyledHeaderContainer>
             }
             
             {showIndex === 2 &&
             <StyledHeaderContainer>
                 <SshoLogo />
-                <HeaderRight>
+                <ColumnBottom>
                     <styles.xlButton color={styles.backDeepYellow}>
                         <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
                     </styles.xlButton>
-                    <styles.button color={styles.lightYellow} style={{marginLeft: 18}}>
+                    <styles.xlButton color={styles.lightYellow} style={{marginTop: 18}}>
                         <styles.buttonText>입점/투자 문의하기</styles.buttonText>
-                    </styles.button>
-                </HeaderRight>
-            </StyledHeaderContainer>
-            }
-
-            {showIndex === 3 &&
-            <StyledHeaderContainer>
-                <SshoLogo />
-                <HeaderRight>
-                    <styles.button color={styles.deepYellow}>
-                        <IconImage src={AppStore} />
-                        <div style={{width: '80%', justifyContent: 'center'}}>
-                            <styles.buttonText>App Store</styles.buttonText>
-                        </div>
-                    </styles.button>
-                    <styles.button color={styles.deepYellow} style={{marginLeft: 18}}>
-                        <IconImage src={playStore} />
-                        <div style={{width: '80%', justifyContent: 'center'}}>
-                            <styles.buttonText>Google Play</styles.buttonText>
-                        </div>
-                    </styles.button>
-                </HeaderRight>
+                    </styles.xlButton>
+                </ColumnBottom>
             </StyledHeaderContainer>
             }
 
@@ -93,45 +73,53 @@ const Header = (props) => {
   );
 }
 
-export default Header;
+export default MobileHeader;
 
 const StyledBox = styled.div`
   display: flex;
-  width: 100%;
-  height: auto;
   justify-content: center;
   background-color: ${props => props.color};
   overflow: hidden;
 
-  @media (max-width: 960px) {
+  @media (min-width: ${styles.break_point}) {
       display: none;
   }
 `;
 const StyledContainer = styled.div`
   padding-top: 30px;
-  max-width: 740px;
-  width: 100%;
-  padding-bottom: 36px;
   align-items: center;
   flex-direction: column;
   display: flex;
   z-index: 10;
-  height: auto;
   position: fixed;
   top: 0;
+  width: 100%;
+  height: 100%;
 `;
 const StyledHeaderContainer = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 70px;
 `;
-const HeaderRight = styled.div`
+const HeaderBottom = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 `;
 const IconImage = styled.img`
   width: 20%;
+`;
+
+const ColumnBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 `;

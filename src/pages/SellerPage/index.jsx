@@ -24,7 +24,7 @@ const SellerPage = (props) => {
     window.addEventListener('scroll', handleScroll);
     // console.log(y);
 
-    if( -height < y && y < 10 ) {
+    if( -height + 50 < y && y < 30 ) {
       props.setHeaderIndex(2);
     }
   })
@@ -41,6 +41,11 @@ const SellerPage = (props) => {
                 <BackImageContainer>
                     <BackImage1 src={Seller1} />
                 </BackImageContainer>
+
+                <MobileLogo>
+                    <SshoLogo  />
+                </MobileLogo>
+
                 <styles.MainTitleText2>
                     <>선호도 기반의<br />
                     다양한 광고 상품</>
@@ -82,6 +87,14 @@ const SellerPage = (props) => {
                     광고 집행 구조에서 벗어날 수 있습니다.</>
                 </styles.MainSubText2>
             </StyledContainer>
+            <ColumnBottom>
+              <styles.xlButton color={styles.backDeepYellow}>
+                  <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
+              </styles.xlButton>
+              <styles.xlButton color={styles.lightYellow} style={{marginTop: 18}}>
+                <styles.buttonText>입점/투자 문의하기</styles.buttonText>
+              </styles.xlButton>
+            </ColumnBottom>
         </styles.box>
   );
 }
@@ -89,14 +102,14 @@ const SellerPage = (props) => {
 export default SellerPage;
 
 const StyledContainer = styled.div`
-  max-width: 740px;
+  max-width: 768px;
   width: 100%;
   padding-bottom: 36px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   display: flex;
-  z-index: 5;
+  z-index: 1;
   position: relative;
   height: 600px;
 `;
@@ -106,7 +119,7 @@ const BackImageContainer = styled.div`
   right: 0px;
   height: 100%;
   width: 100%;
-  z-index: 2;
+  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,4 +137,23 @@ const BackImage3 = styled.img`
   height: auto;
   margin-top: 80px;
 `;
+const MobileLogo = styled.div`
+  position: absolute;
+  top: 60px;
+  @media (min-width: ${styles.break_point}) {
+    display: none;
+  }
+`;
 
+const ColumnBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  @media (min-width: ${styles.break_point}) {
+    display: none;
+  }
+`;

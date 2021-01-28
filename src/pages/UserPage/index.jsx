@@ -42,7 +42,7 @@ const UserPage = (props) => {
     window.addEventListener('scroll', handleScroll);
     // console.log(y, height);
 
-    if( -height < y && y < 10 ) props.setHeaderIndex(1);
+    if( -height + 30 < y && y < 30 ) props.setHeaderIndex(1);
   })
 
   useEffect(() => {
@@ -121,14 +121,18 @@ export default UserPage;
 
 const StyledContainer = styled.div`
   padding-top: 100px;
-  max-width: 740px;
+  max-width: 768px;
   width: 100%;
   padding-bottom: 36px;
   align-items: center;
   flex-direction: column;
   display: flex;
   z-index: 5;
-  background-color: ${styles.backDeepYellow}
+  background-color: ${styles.backDeepYellow};
+
+  @media (max-width: ${styles.break_point}) {
+    display: none;
+  }
 `;
 const StyledContentContainer = styled.div`
   display: flex;

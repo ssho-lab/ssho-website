@@ -10,6 +10,8 @@ import IPhone from '../../data/image/iPhone.png';
 import AppStore from '../../data/icon/appstore.png';
 import playStore from '../../data/icon/playstore.png';
 
+import { SshoLogo } from '../../data';
+
 
 const MainPage = (props) => {
   const ref = useRef(null);
@@ -26,7 +28,7 @@ const MainPage = (props) => {
     window.addEventListener('scroll', handleScroll);
     // console.log(y);
 
-    if( -height < y && y < 10 ) {
+    if( -height + 30 < y && y < 30 ) {
       props.setHeaderIndex(0);
     }
   })
@@ -41,9 +43,12 @@ const MainPage = (props) => {
         <styles.box color={styles.backLightYellow} ref={ref} onScroll={handleScroll}>
             <BackImage src={Back} />
             <StyledContainer>
+                <MobileLogo>
+                  <SshoLogo  />
+                </MobileLogo>
                 <StyledContentContainer>
-                <Grid container direction="row">
-                  <Grid item md>
+                <StyledGrid container direction="row">
+                  <StyledGrid item md>
                     <styles.HeaderTitleText>
                         <>취향 발견의 즐거움, <br />
                         스쇼 </>
@@ -67,13 +72,20 @@ const MainPage = (props) => {
                             </div>
                         </styles.button>
                     </StyledButtonContainer>
-                  </Grid>
-                  <Grid item md>
+                  </StyledGrid>
+                  <StyledGrid item md>
                       <StyledPhone src={IPhone} />
-                  </Grid>
-                </Grid>
+                  </StyledGrid>
+                </StyledGrid>
                 </StyledContentContainer>
-
+                <MobileFooter>
+                  <styles.HeaderText style={{marginRight: 18}}>
+                        입점 문의 혹은 투자 문의가 필요하신가요?
+                    </styles.HeaderText>
+                    <styles.xsButton color={styles.lightYellow}>
+                        문의하기
+                    </styles.xsButton>
+                </MobileFooter>
             </StyledContainer>
         </styles.box>
   );
@@ -83,7 +95,7 @@ export default MainPage;
 
 const StyledContainer = styled.div`
   padding-top: 100px;
-  max-width: 740px;
+  max-width: 768px;
   width: 100%;
   padding-bottom: 36px;
   align-items: center;
@@ -91,6 +103,10 @@ const StyledContainer = styled.div`
   display: flex;
   z-index: 3;
   height: auto;
+
+  @media (max-width: ${styles.break_point}) {
+    padding-top: 30px;
+  }
 `;
 const StyledContentContainer = styled.div`
   display: flex;
@@ -108,6 +124,10 @@ const StyledButtonContainer = styled.div`
 const StyledPhone = styled.img`
   width: 50%;
   transform: rotate(8deg);
+
+  @media (max-width: ${styles.break_point}) {
+    display: none;
+  }
 `;
 const BackImage = styled.img`
   position: absolute;
@@ -120,4 +140,26 @@ const BackImage = styled.img`
 `;
 const IconImage = styled.img`
   width: 20%;
+`;
+const StyledGrid = styled(Grid)`
+  @media (max-width: ${styles.break_point}) {
+    justify-content: center;
+  }
+`;
+const MobileLogo = styled.div`
+  margin: 30px;
+  @media (min-width: ${styles.break_point}) {
+    display: none;
+  }
+`;
+const MobileFooter = styled.div`
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: ${styles.break_point}) {
+    display: none;
+  }
 `;

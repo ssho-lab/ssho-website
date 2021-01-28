@@ -36,8 +36,8 @@ const ValuePage = (props) => {
     window.addEventListener('scroll', handleScroll);
     // console.log(y);
 
-    if( -height < y && y < 10 ) {
-      props.setHeaderIndex(1);
+    if( -height + 50 < y && y < 50 ) {
+      props.setHeaderIndex(3);
     }
   })
 
@@ -63,14 +63,14 @@ const ValuePage = (props) => {
             <StyledContainer>
                 <StyledContentContainer>
                 <Grid container direction="row" justify="center" alignItems="center">
-                    <Grid item md> 
+                    <TitleGrid item md> 
                         <styles.HeaderTitleText>
                             <>스쇼의 중심 가치</>
                         </styles.HeaderTitleText>
-                    </Grid>
+                    </TitleGrid>
 
-                    <Grid item md container justify="flex-end" spacing={3}>
-                        <Grid item md>
+                    <ButtonGrid item md container justify="flex-end" spacing={3}>
+                        <Grid item xs>
                             <styles.lgButton color={styles.lightYellow}>
                                 <Underlined>
                                     <styles.HeaderSubText>{TEXT[showIndex].identity}</styles.HeaderSubText>
@@ -78,7 +78,7 @@ const ValuePage = (props) => {
                                 <styles.HeaderSubText>개성</styles.HeaderSubText>
                              </styles.lgButton>
                         </Grid>
-                         <Grid item md>
+                         <Grid item xs>
                             <styles.lgButton color={styles.lightYellow}>
                                 <Underlined>
                                     <styles.HeaderSubText>{TEXT[showIndex].fun}</styles.HeaderSubText>
@@ -86,7 +86,7 @@ const ValuePage = (props) => {
                                 <styles.HeaderSubText>재미</styles.HeaderSubText>
                              </styles.lgButton>
                         </Grid>
-                         <Grid item md>
+                         <Grid item xs>
                             <styles.lgButton color={styles.lightYellow}>
                                 <Underlined>
                                     <styles.HeaderSubText>{TEXT[showIndex].find}</styles.HeaderSubText>
@@ -94,7 +94,7 @@ const ValuePage = (props) => {
                                 <styles.HeaderSubText>발견</styles.HeaderSubText>
                              </styles.lgButton>
                         </Grid>
-                    </Grid>
+                    </ButtonGrid>
                 </Grid>
                 </StyledContentContainer>
 
@@ -107,7 +107,7 @@ export default ValuePage;
 
 const StyledContainer = styled.div`
   padding-top: 100px;
-  max-width: 740px;
+  max-width: 768px;
   width: 100%;
   padding-bottom: 36px;
   align-items: center;
@@ -117,6 +117,10 @@ const StyledContainer = styled.div`
   height: auto;
   position: relative;
   justify-content: center;
+
+  @media (max-width: ${styles.break_point}) {
+    padding-top: 30px;
+  }
 `;
 const StyledContentContainer = styled.div`
   display: flex;
@@ -135,6 +139,10 @@ const BackImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${styles.break_point}) {
+    display: none;
+  }
 `;
 const BackImage = styled.img`
   width: 80%;
@@ -147,4 +155,16 @@ const Underlined = styled.div`
   width: 60%;
   align-items: center;
   justify-content: center;
+`;
+const TitleGrid = styled(Grid)`
+  @media (max-width: ${styles.break_point}) {
+    margin-bottom: 30px;
+  }
+`;
+const ButtonGrid = styled(Grid)`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: ${styles.break_point}) {
+    justify-content: center;
+  }
 `;

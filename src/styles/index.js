@@ -12,6 +12,8 @@ export const tablet_small = '481px';
 export const mobile_large = '480px';
 export const mobile_small = '320px';
 
+export const break_point = '960px';
+
 
 // color
 export const deepYellow = '#ffb700';
@@ -90,6 +92,10 @@ export const HeaderTitleText = styled.div`
   line-height: 47px;
   text-align: left;
   color: ${black};
+
+  @media (max-width: ${break_point}) {
+    text-align: center;
+  }
 `;
 
 export const HeaderSubText = styled.div`
@@ -97,6 +103,10 @@ export const HeaderSubText = styled.div`
   line-height: 29px;
   text-align: ${props => props.align};
   color: ${black};
+
+  @media (max-width: ${break_point}) {
+    text-align: center;
+  }
 `;
 export const buttonText = styled.div`
   font-size: 16px;
