@@ -37,7 +37,7 @@ const SellerPage = (props) => {
 
   return (
         <styles.box color={styles.backLightYellow} style={{flexDirection: 'column', alignItems: 'center'}} ref={ref} onScroll={handleScroll}>
-            <StyledContainer>
+            <MobileContainer1>
                 <BackImageContainer>
                     <BackImage1 src={Seller1} />
                 </BackImageContainer>
@@ -56,7 +56,7 @@ const SellerPage = (props) => {
                     쇼핑몰의 마케팅 전략 단게에 맞추어<br />
                     유동적으로 집행 가능합니다.</>
                 </styles.MainSubText2>
-            </StyledContainer>
+            </MobileContainer1>
             <StyledContainer>
                 <BackImageContainer>
                     <BackImage2 src={Seller2} />
@@ -71,7 +71,7 @@ const SellerPage = (props) => {
                     데이터 기반의 마케팅 솔루션을 제공합니다.</>
                 </styles.MainSubText2>
             </StyledContainer>
-            <StyledContainer>
+            <MobileContainer2>
                 <BackImageContainer>
                     <BackImage3 src={Seller3} />
                 </BackImageContainer>
@@ -86,7 +86,7 @@ const SellerPage = (props) => {
                     대행사에 의존할 수 밖에 없는 기존 쇼핑 플랫폼의<br />
                     광고 집행 구조에서 벗어날 수 있습니다.</>
                 </styles.MainSubText2>
-            </StyledContainer>
+            </MobileContainer2>
             <ColumnBottom>
               <styles.xlButton color={styles.backDeepYellow}>
                   <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
@@ -112,6 +112,44 @@ const StyledContainer = styled.div`
   z-index: 1;
   position: relative;
   height: 600px;
+
+  @media (max-width: ${styles.mobile_large}) {
+    height: 500px;
+  }
+`;
+const MobileContainer1 = styled.div`
+  max-width: 768px;
+  width: 100%;
+  padding-bottom: 36px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  z-index: 1;
+  position: relative;
+  height: 600px;
+
+  @media (max-width: ${styles.mobile_large}) {
+    height: 500px;
+    margin-top: 60px;
+  }
+`;
+const MobileContainer2 = styled.div`
+  max-width: 768px;
+  width: 100%;
+  padding-bottom: 36px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  z-index: 1;
+  position: relative;
+  height: 600px;
+
+  @media (max-width: ${styles.mobile_large}) {
+    height: 400px;
+    margin-bottom: 60px;
+  }
 `;
 const BackImageContainer = styled.div`
   position: absolute;
@@ -142,6 +180,9 @@ const MobileLogo = styled.div`
   top: 60px;
   @media (min-width: ${styles.break_point}) {
     display: none;
+  }
+  @media (max-width: ${styles.mobile_large}) {
+    top: 0px;
   }
 `;
 
