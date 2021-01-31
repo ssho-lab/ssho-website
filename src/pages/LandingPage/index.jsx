@@ -18,11 +18,11 @@ const LandingPage = ({history}) => {
     <StylesProvider injectFirst>
         <Header headerIndex={headerIndex} />
         <MobileHeader headerIndex={headerIndex} />
-        <MainPage setHeaderIndex={setHeaderIndex} />
-        <UserPage setHeaderIndex={setHeaderIndex}   />
-        <MobileUserPage setHeaderIndex={setHeaderIndex}   />
-        <SellerPage setHeaderIndex={setHeaderIndex}   />
-        <ValuePage setHeaderIndex={setHeaderIndex}   />
+        <MainPage headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} />
+        <UserPage headerIndex={headerIndex} setHeaderIndex={setHeaderIndex}   />
+        <MobileUserPage headerIndex={headerIndex} setHeaderIndex={setHeaderIndex}   />
+        <SellerPage headerIndex={headerIndex} setHeaderIndex={setHeaderIndex}   />
+        <ValuePage headerIndex={headerIndex} setHeaderIndex={setHeaderIndex}   />
         <FooterPage />
     </StylesProvider>
   );
