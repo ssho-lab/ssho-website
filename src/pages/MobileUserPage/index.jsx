@@ -44,8 +44,8 @@ const MobileUserPage = (props) => {
     window.addEventListener('scroll', handleScroll);
     // console.log(y, height);
 
-    if( -height + window.innerHeight < y && y < -30 ) props.setHeaderIndex(1);
-    else if(props.headerIndex === 1) props.setHeaderIndex(0);
+    if( -height + window.innerHeight < y && y < -30 ) props.setMobileIndex(1);
+    else if(props.mobileIndex === 1) props.setMobileIndex(0);
   })
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const MobileUserPage = (props) => {
             <StyledContainer>
                 <StyledContentContainer>
                     <MobileLogo>
-                        <SshoLogo style={{opacity: props.headerIndex === 1 ? 0 : 1}}  />
+                        <SshoLogo style={{opacity: props.mobileIndex === 1 ? 0 : 1}}  />
                     </MobileLogo>
 
                     <MobilePage>
@@ -115,7 +115,7 @@ const MobileUserPage = (props) => {
                     </MobilePage>
                 </StyledContentContainer>
 
-                <HeaderBottom style={{opacity: props.headerIndex === 1 ? 0 : 1}}>
+                <HeaderBottom style={{opacity: props.mobileIndex === 1 ? 0 : 1}}>
                     <styles.button color={styles.deepYellow}>
                         <IconImage src={AppStore} />
                         <div style={{width: '80%', justifyContent: 'center'}}>

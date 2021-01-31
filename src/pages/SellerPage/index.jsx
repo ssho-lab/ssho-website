@@ -24,8 +24,10 @@ const SellerPage = (props) => {
     window.addEventListener('scroll', handleScroll);
     // console.log(y);
 
-    if( -height + window.innerHeight < y && y < -30 ) props.setHeaderIndex(2);
-    else if(props.headerIndex === 2) props.setHeaderIndex(4);
+    if( -height + window.innerHeight < y && y < -30 ) props.setMobileIndex(2);
+    else if(props.mobileIndex === 2) props.setMobileIndex(4);
+
+    if( -height + 30 < y && y < -30 ) props.setHeaderIndex(2);
   })
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const SellerPage = (props) => {
                 </BackImageContainer>
 
                 <MobileLogo>
-                    <SshoLogo style={{opacity: props.headerIndex === 2 ? 0 : 1}}  />
+                    <SshoLogo style={{opacity: props.mobileIndex === 2 ? 0 : 1}}  />
                 </MobileLogo>
 
                 <styles.MainTitleText2>
@@ -86,7 +88,7 @@ const SellerPage = (props) => {
                     광고 집행 구조에서 벗어날 수 있습니다.</>
                 </styles.MainSubText2>
             </MobileContainer2>
-            <ColumnBottom style={{opacity: props.headerIndex === 2 ? 0 : 1}}>
+            <ColumnBottom style={{opacity: props.mobileIndex === 2 ? 0 : 1}}>
               <styles.xlButton color={styles.backDeepYellow}>
                   <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
               </styles.xlButton>

@@ -11,7 +11,7 @@ const MobileHeader = (props) => {
   const [showIndex, setShowIndex] = useState(0);
   
   useEffect(() => {
-    setShowIndex(props.headerIndex);
+    setShowIndex(props.mobileIndex);
     // console.log('showIndex: ', showIndex)
   }, [props])
 
