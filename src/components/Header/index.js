@@ -3,7 +3,6 @@ import * as styles from '../../styles';
 import { SshoLogo } from '../../data';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
-import './index.css';
 
 import AppStore from '../../data/icon/appstore.png';
 import playStore from '../../data/icon/playstore.png';
