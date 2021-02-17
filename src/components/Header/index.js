@@ -3,6 +3,7 @@ import * as styles from '../../styles';
 import { SshoLogo } from '../../data';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
+import './index.css';
 
 import AppStore from '../../data/icon/appstore.png';
 import playStore from '../../data/icon/playstore.png';
@@ -124,6 +125,7 @@ const StyledHeaderContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
+  transition-property: opacity;
 `;
 const HeaderRight = styled.div`
   display: flex;
@@ -131,6 +133,18 @@ const HeaderRight = styled.div`
   width: 100%;
   align-items: center;
   justify-content: flex-end;
+
+  animation: opacity 0.6s;
+
+  @keyframes opacity {
+    from {
+      opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+  }
 `;
 const IconImage = styled.img`
   width: 20%;
