@@ -73,7 +73,9 @@ const ValuePage = (props) => {
                         <Grid item xs>
                             <styles.lgButton color={styles.lightYellow}>
                                 <Underlined>
-                                    <styles.HeaderSubText>{TEXT[showIndex].identity}</styles.HeaderSubText>
+                                    {showIndex === 0 && <HeaderSubText>{TEXT[0].identity}</HeaderSubText>}
+                                    {showIndex === 1 && <HeaderSubText>{TEXT[1].identity}</HeaderSubText>}
+                                    {showIndex === 2 && <HeaderSubText>{TEXT[2].identity}</HeaderSubText>}
                                 </Underlined>
                                 <styles.HeaderSubText>개성</styles.HeaderSubText>
                              </styles.lgButton>
@@ -81,7 +83,9 @@ const ValuePage = (props) => {
                          <Grid item xs>
                             <styles.lgButton color={styles.lightYellow}>
                                 <Underlined>
-                                    <styles.HeaderSubText>{TEXT[showIndex].fun}</styles.HeaderSubText>
+                                    {showIndex === 0 && <HeaderSubText>{TEXT[0].fun}</HeaderSubText>}
+                                    {showIndex === 1 && <HeaderSubText>{TEXT[1].fun}</HeaderSubText>}
+                                    {showIndex === 2 && <HeaderSubText>{TEXT[2].fun}</HeaderSubText>}
                                 </Underlined>
                                 <styles.HeaderSubText>재미</styles.HeaderSubText>
                              </styles.lgButton>
@@ -89,7 +93,9 @@ const ValuePage = (props) => {
                          <Grid item xs>
                             <styles.lgButton color={styles.lightYellow}>
                                 <Underlined>
-                                    <styles.HeaderSubText>{TEXT[showIndex].find}</styles.HeaderSubText>
+                                    {showIndex === 0 && <HeaderSubText>{TEXT[0].find}</HeaderSubText>}
+                                    {showIndex === 1 && <HeaderSubText>{TEXT[1].find}</HeaderSubText>}
+                                    {showIndex === 2 && <HeaderSubText>{TEXT[2].find}</HeaderSubText>}
                                 </Underlined>
                                 <styles.HeaderSubText>발견</styles.HeaderSubText>
                              </styles.lgButton>
@@ -166,5 +172,27 @@ const ButtonGrid = styled(Grid)`
   flex-direction: column;
   @media (max-width: ${styles.break_point}) {
     justify-content: center;
+  }
+`;
+
+export const HeaderSubText = styled.div`
+  font-size: 20px;
+  line-height: 29px;
+  text-align: ${props => props.align};
+  color: ${styles.black};
+  animation: opacity 1s;
+
+  @keyframes opacity {
+    from {
+      opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+  }
+
+  @media (max-width: ${styles.break_point}) {
+    text-align: center;
   }
 `;
