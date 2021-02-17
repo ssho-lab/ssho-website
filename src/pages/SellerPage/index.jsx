@@ -44,7 +44,7 @@ const SellerPage = (props) => {
                 </BackImageContainer>
 
                 <MobileLogo>
-                    <SshoLogo style={{opacity: props.mobileIndex === 2 ? 0 : 1}}  />
+                    <SshoLogo style={{opacity: props.mobileIndex === 2 ? 0 : 1}} onClick={() => props.goTop()}  />
                 </MobileLogo>
 
                 <styles.MainTitleText2>

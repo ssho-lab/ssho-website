@@ -72,7 +72,7 @@ const MobileUserPage = (props) => {
             <StyledContainer>
                 <StyledContentContainer>
                     <MobileLogo>
-                        <SshoLogo style={{opacity: props.mobileIndex === 1 ? 0 : 1}}  />
+                        <SshoLogo style={{opacity: props.mobileIndex === 1 ? 0 : 1}} onClick={() => props.goTop()}  />
                     </MobileLogo>
 
                     <MobilePage>

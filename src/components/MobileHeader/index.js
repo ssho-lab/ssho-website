@@ -16,9 +16,7 @@ const MobileHeader = (props) => {
   }, [props])
 
   return (
-    <StyledBox color={'transparent'}>
-        <StyledContainer>
-
+    <div>
             {/* {showIndex === 0 &&
             <StyledHeaderContainer>
                 <SshoLogo />
@@ -34,8 +32,10 @@ const MobileHeader = (props) => {
             } */}
 
             {showIndex === 1 &&
-            <StyledHeaderContainer>
-                <SshoLogo />
+            <>
+                <HeaderTop>
+                  <SshoLogo onClick={() => props.goTop()} />
+                </HeaderTop>
                 <HeaderBottom>
                     <styles.button color={styles.deepYellow}>
                         <IconImage src={AppStore} />
@@ -50,12 +50,15 @@ const MobileHeader = (props) => {
                         </div>
                     </styles.button>
                 </HeaderBottom>
-            </StyledHeaderContainer>
+            </>
             }
             
             {showIndex === 2 &&
-            <StyledHeaderContainer>
-                <SshoLogo />
+            <>
+              <HeaderTop>
+                <SshoLogo onClick={() => props.goTop()} />
+              </HeaderTop>
+                
                 <ColumnBottom>
                     <styles.xlButton color={styles.backDeepYellow}>
                         <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
@@ -64,62 +67,59 @@ const MobileHeader = (props) => {
                         <styles.buttonText>입점/투자 문의하기</styles.buttonText>
                     </styles.xlButton>
                 </ColumnBottom>
-            </StyledHeaderContainer>
+            </>
             }
-
-
-        </StyledContainer>
-    </StyledBox>
+    </div>
   );
 }
 
 export default MobileHeader;
 
-const StyledBox = styled.div`
+const HeaderTop = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
-  background-color: ${props => props.color};
-  overflow: hidden;
+  z-index: 10;
+  padding-top: 30px;
 
   @media (min-width: ${styles.break_point}) {
       display: none;
   }
 `;
-const StyledContainer = styled.div`
-  padding-top: 30px;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-`;
-const StyledHeaderContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  height: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 70px;
-`;
 const HeaderBottom = styled.div`
-  display: flex;
-  flex-direction: row;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  align-items: center;
+  height: auto;
+  display: flex;
   justify-content: center;
+  z-index: 10;
+  padding-bottom: 30px;
+
+  @media (min-width: ${styles.break_point}) {
+      display: none;
+  }
 `;
 const IconImage = styled.img`
   width: 20%;
 `;
 
 const ColumnBottom = styled.div`
+  position: fixed;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   width: 100%;
+  height; auto;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  padding-bottom: 30px;
+
+  @media (min-width: ${styles.break_point}) {
+      display: none;
+  }
 `;

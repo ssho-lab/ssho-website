@@ -21,12 +21,14 @@ const Header = (props) => {
 
             {showIndex === 0 &&
             <StyledHeaderContainer>
-                <SshoLogo />
+                <SshoLogo
+                  onClick={() => props.goTop()} 
+                />
                 <HeaderRight>
                     <styles.HeaderText style={{marginRight: 18}}>
                         입점 문의 혹은 투자 문의가 필요하신가요?
                     </styles.HeaderText>
-                    <styles.xsButton color={styles.lightYellow}>
+                    <styles.xsButton color={styles.lightYellow} onClick={() => props.goBottom()} >
                         문의하기
                     </styles.xsButton>
                 </HeaderRight>
@@ -35,7 +37,7 @@ const Header = (props) => {
 
             {showIndex === 1 &&
             <StyledHeaderContainer>
-                <SshoLogo />
+                <SshoLogo onClick={() => props.goTop()} />
                 <HeaderRight>
                     <styles.button color={styles.deepYellow}>
                         <IconImage src={AppStore} />
@@ -55,7 +57,7 @@ const Header = (props) => {
             
             {showIndex === 2 &&
             <StyledHeaderContainer>
-                <SshoLogo />
+                <SshoLogo onClick={() => props.goTop()} />
                 <HeaderRight>
                     <styles.xlButton color={styles.backDeepYellow}>
                         <styles.buttonText>서비스 소개서 다운로드</styles.buttonText>
@@ -69,7 +71,7 @@ const Header = (props) => {
 
             {showIndex === 3 &&
             <StyledHeaderContainer>
-                <SshoLogo />
+                <SshoLogo onClick={() => props.goTop()} />
                 <HeaderRight>
                     <styles.button color={styles.deepYellow}>
                         <IconImage src={AppStore} />

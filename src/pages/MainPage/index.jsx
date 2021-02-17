@@ -5,6 +5,8 @@ import * as styles from '../../styles';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components'
 
+import Tappable from 'react-tappable';
+
 import Back from '../../data/image/main_back.svg';
 import IPhone from '../../data/image/iPhone.png';
 import AppStore from '../../data/icon/appstore.png';
@@ -44,7 +46,7 @@ const MainPage = (props) => {
             <BackImage src={Back} />
             <StyledContainer>
                 <MobileLogo>
-                  <SshoLogo  />
+                  <SshoLogo onClick={() => props.goTop()} />
                 </MobileLogo>
                 <StyledContentContainer>
                 <StyledGrid container direction="row">
@@ -82,7 +84,7 @@ const MainPage = (props) => {
                   <styles.HeaderText style={{marginRight: 18}}>
                         입점 문의 혹은 투자 문의가 필요하신가요?
                     </styles.HeaderText>
-                    <styles.xsButton color={styles.lightYellow}>
+                    <styles.xsButton color={styles.lightYellow} onClick={() => props.goBottom()}>
                         문의하기
                     </styles.xsButton>
                 </MobileFooter>

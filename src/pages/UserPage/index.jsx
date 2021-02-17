@@ -75,12 +75,16 @@ const UserPage = (props) => {
                         <Grid item container md={8}justify="flex-end" alignItems="center" direction="row">
                             <Grid item md={8}>
                                 {/* Carousel 넣을자 고민 */}
-                                <styles.MainTitleText1>
-                                    {showTitle}
-                                </styles.MainTitleText1>
-                                <styles.HeaderSubText align={'right'}>
-                                    {showSub}
-                                </styles.HeaderSubText>
+                                    <styles.MainTitleText1>
+                                        {nowBtn === 'swipe' && <StyledAnimation>{TEXT.swipe.title}</StyledAnimation>}
+                                        {nowBtn === 'style' && <StyledAnimation>{TEXT.style.title}</StyledAnimation>}
+                                        {nowBtn === 'like' && <StyledAnimation>{TEXT.like.title}</StyledAnimation>}
+                                    </styles.MainTitleText1>
+                                    <styles.HeaderSubText align={'right'}>
+                                        {nowBtn === 'swipe' && <StyledAnimation>{TEXT.swipe.sub}</StyledAnimation>}
+                                        {nowBtn === 'style' && <StyledAnimation>{TEXT.style.sub}</StyledAnimation>}
+                                        {nowBtn === 'like' && <StyledAnimation>{TEXT.like.sub}</StyledAnimation>}
+                                    </styles.HeaderSubText>
                             </Grid>
                             <Grid item md={4} container xs justify="flex-end" spacing={3}>
                                 <Grid item md>
@@ -142,4 +146,17 @@ const StyledContentContainer = styled.div`
 `;
 const StyledPhone = styled.img`
   width: 80%;
+`;
+const StyledAnimation = styled.div`
+  animation: opacity 1s;
+
+  @keyframes opacity {
+    from {
+      opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+  }
 `;
