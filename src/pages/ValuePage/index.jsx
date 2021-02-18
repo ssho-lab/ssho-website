@@ -25,6 +25,8 @@ const ValuePage = (props) => {
   const ref = useRef(null);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const [showUp, setShowUp] = useState(false);
+
   const handleScroll = (e) => {
     setScrollTop(e.srcElement.scrollingElement.scrollTop)
   }
@@ -39,6 +41,8 @@ const ValuePage = (props) => {
     if( -height + 50 < y && y < 50 ) {
       props.setHeaderIndex(3);
     }
+
+    if ( y < 500 ) setShowUp(true);
   })
 
   useEffect(() => {
@@ -60,7 +64,7 @@ const ValuePage = (props) => {
             <BackImageContainer>
                 <BackImage src={CoreValue} />
             </BackImageContainer>
-            <StyledContainer>
+            <StyledContainer showUp={showUp}>
                 <StyledContentContainer>
                 <Grid container direction="row" justify="center" alignItems="center">
                     <TitleGrid item md> 
@@ -123,6 +127,12 @@ const StyledContainer = styled.div`
   height: auto;
   position: relative;
   justify-content: center;
+
+  margin-top: 50px;
+
+  transform: ${props => props.showUp ? "translateY(-50px)" : "translateY(0px)"};
+  transition: all 0.5s ease-in-out 0.5s;
+  opacity: ${props => props.showUp ? "100%" : "0%"};
 
   @media (max-width: ${styles.break_point}) {
     padding-top: 30px;

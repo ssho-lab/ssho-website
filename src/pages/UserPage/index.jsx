@@ -28,6 +28,8 @@ const UserPage = (props) => {
   const [showTitle, setShowTitle] = useState('');
   const [showSub, setShowSub] = useState('');
 
+  const [showUp, setShowUp] = useState(false);
+
   const ref = useRef(null);
   const [scrollTop, setScrollTop] = useState(0);
   
@@ -43,6 +45,9 @@ const UserPage = (props) => {
     // console.log(y, height);
 
     if( -height + 30 < y && y < 30 ) props.setHeaderIndex(1);
+
+    // 등장하는 애니메이션을 위해
+    if ( y < 500 ) setShowUp(true);
   })
 
   useEffect(() => {
@@ -67,7 +72,7 @@ const UserPage = (props) => {
   return (
         <styles.box color={styles.backDeepYellow} style={{zIndex: 5}} ref={ref} onScroll={handleScroll}>
             <StyledContainer>
-                <StyledContentContainer>
+                <StyledContentContainer showUp={showUp}>
                     <Grid container direction="row"> 
                         <Grid item md={4}>
                              <StyledPhone src={IPhone} />
@@ -115,7 +120,6 @@ const UserPage = (props) => {
                         </Grid>
                     </Grid>
                 </StyledContentContainer>
-
             </StyledContainer>
         </styles.box>
   );
@@ -142,7 +146,11 @@ const StyledContentContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-top: 28px;
+  margin-top: 78px;
+
+  transform: ${props => props.showUp ? "translateY(-50px)" : "translateY(0px)"};
+  transition: all 0.5s ease-in-out 0.5s;
+  opacity: ${props => props.showUp ? "100%" : "0%"};
 `;
 const StyledPhone = styled.img`
   width: 80%;

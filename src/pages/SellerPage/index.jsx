@@ -12,6 +12,9 @@ import Seller3 from '../../data/image/seller3.svg';
 const SellerPage = (props) => {
   const ref = useRef(null);
   const [scrollTop, setScrollTop] = useState(0);
+  const [showUp1, setShowUp1] = useState(false);
+  const [showUp2, setShowUp2] = useState(false);
+  const [showUp3, setShowUp3] = useState(false);
 
   const handleScroll = (e) => {
     setScrollTop(e.srcElement.scrollingElement.scrollTop)
@@ -28,6 +31,11 @@ const SellerPage = (props) => {
     else if(props.mobileIndex === 2) props.setMobileIndex(4);
 
     if( -height + 30 < y && y < -30 ) props.setHeaderIndex(2);
+
+    // 등장하는 애니메이션을 위해
+    if ( y < 300 ) setShowUp1(true);
+    if ( y < -100 ) setShowUp2(true);
+    if ( y < -300 ) setShowUp3(true);
   })
 
   useEffect(() => {
@@ -38,7 +46,7 @@ const SellerPage = (props) => {
 
   return (
         <styles.box color={styles.backLightYellow} style={{flexDirection: 'column', alignItems: 'center'}} ref={ref} onScroll={handleScroll}>
-            <MobileContainer1>
+            <MobileContainer1 showUp={showUp1}>
                 <BackImageContainer>
                     <BackImage1 src={Seller1} />
                 </BackImageContainer>
@@ -58,7 +66,7 @@ const SellerPage = (props) => {
                     유동적으로 집행 가능합니다.</>
                 </styles.MainSubText2>
             </MobileContainer1>
-            <StyledContainer>
+            <StyledContainer showUp={showUp2}>
                 <BackImageContainer>
                     <BackImage2 src={Seller2} />
                 </BackImageContainer>
@@ -72,7 +80,7 @@ const SellerPage = (props) => {
                     데이터 기반의 마케팅 솔루션을 제공합니다.</>
                 </styles.MainSubText2>
             </StyledContainer>
-            <MobileContainer2>
+            <MobileContainer2 showUp={showUp3}>
                 <BackImageContainer>
                     <BackImage3 src={Seller3} />
                 </BackImageContainer>
@@ -114,6 +122,12 @@ const StyledContainer = styled.div`
   position: relative;
   height: 600px;
 
+  margin-top: 50px;
+
+  transform: ${props => props.showUp ? "translateY(-50px)" : "translateY(0px)"};
+  transition: all 0.5s ease-in-out 0.5s;
+  opacity: ${props => props.showUp ? "100%" : "0%"};
+
   @media (max-width: ${styles.mobile_large}) {
     height: 500px;
   }
@@ -129,6 +143,12 @@ const MobileContainer1 = styled.div`
   z-index: 1;
   position: relative;
   height: 600px;
+
+  margin-top: 50px;
+
+  transform: ${props => props.showUp ? "translateY(-50px)" : "translateY(0px)"};
+  transition: all 0.5s ease-in-out 0.5s;
+  opacity: ${props => props.showUp ? "100%" : "0%"};
 
   @media (max-width: ${styles.mobile_large}) {
     height: 500px;
@@ -146,6 +166,12 @@ const MobileContainer2 = styled.div`
   z-index: 1;
   position: relative;
   height: 600px;
+
+  margin-top: 50px;
+
+  transform: ${props => props.showUp ? "translateY(-50px)" : "translateY(0px)"};
+  transition: all 0.5s ease-in-out 0.5s;
+  opacity: ${props => props.showUp ? "100%" : "0%"};
 
   @media (max-width: ${styles.mobile_large}) {
     height: 400px;
@@ -183,7 +209,7 @@ const MobileLogo = styled.div`
     display: none;
   }
   @media (max-width: ${styles.mobile_large}) {
-    top: 0px;
+    top: 30px;
   }
 `;
 
